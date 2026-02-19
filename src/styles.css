@@ -1,0 +1,29 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-main: #137fec;
+  --color-background: var(--background);
+}
+
+ng-icon svg {
+  color: inherit;
+  fill: currentColor;
+}
+
+.text-main {
+  color: var(--color-main);
+}
+
+:root {
+  --background: #f6f7f8;
+}
+
+.dark {
+  --background: #101922;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --background: #101922;
+  }
+}
