@@ -14,22 +14,24 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './login-form.css',
 })
 export class LoginForm {
-  email: string = '';
-  password: string = '';
+  email: string | null = null;
+  password: string | null = null;
 
   private authService = inject(AuthService);
 
   private router = inject(Router);
 
   login() {
-    this.authService.login(this.email, this.password).subscribe((success) => {
-      if (success) {
-        alert('Inicio de sesión exitoso');
-        this.router.navigate(['home']);
-      } else {
-        alert('Credenciales incorrectas');
-      }
-    });
+    if (this.email && this.password) {
+      this.authService.login(this.email, this.password).subscribe((success) => {
+        if (success) {
+          alert('Inicio de sesión exitoso');
+          this.router.navigate(['']);
+        } else {
+          alert('Credenciales incorrectas');
+        }
+      });
+    }
   }
 
   logout() {

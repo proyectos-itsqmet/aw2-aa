@@ -1,1 +1,50 @@
-<p>nav-bar works!</p>
+<header
+  class="relative z-10 flex items-center justify-between px-6 py-5 md:px-12 border-b border-white/5"
+>
+  <div class="flex items-center gap-3">
+    <div class="angular-gradient p-2 rounded-lg shadow-lg">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/6/67/Angular_gradient_logo.png"
+        alt="Angular"
+        class="h-10 w-10"
+      />
+    </div>
+    <h1 class="text-xl font-extrabold tracking-tight text-white uppercase">Angular Guards</h1>
+  </div>
+  <div class="hidden md:flex items-center gap-8">
+    <nav class="flex items-center gap-6">
+      <a
+        routerLink="/"
+        class="text-sm font-medium text-slate-400 hover:text-white transition-colors cursor-pointer"
+        >Inicio</a
+      >
+      <!-- <a
+        routerLink="/users"
+        class="text-sm font-medium text-slate-400 hover:text-white transition-colors cursor-pointer"
+        >Usuarios</a
+      > -->
+      @if (isLogin) {
+        <a
+          routerLink="/register"
+          class="text-sm font-bold text-white bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg transition-all cursor-pointer"
+          >Registrar</a
+        >
+      }
+      @if (!isLogin && !isAuthenticated) {
+        <a
+          routerLink="/login"
+          class="text-sm font-bold text-white bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg transition-all cursor-pointer"
+          >Iniciar Sesión</a
+        >
+      }
+      @if (isAuthenticated) {
+        <a
+          routerLink="/login"
+          (click)="logout()"
+          class="text-sm font-bold text-white bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg transition-all cursor-pointer"
+          >Cerrar Sesión</a
+        >
+      }
+    </nav>
+  </div>
+</header>

@@ -1,1 +1,104 @@
-<p>register-form works!</p>
+<div
+  class="bg-white dark:bg-slate-900/80 backdrop-blur-xl border border-slate-200 dark:border-slate-800 rounded-xl shadow-2xl p-8 md:p-10"
+>
+  <form (ngSubmit)="saveUser()" class="space-y-6">
+    <div class="space-y-2">
+      <label
+        class="text-sm font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-2"
+        for="name"
+      >
+        <ng-icon name="ionPerson" class="text-main" size="20"></ng-icon>
+        Nombre completo
+      </label>
+      <div class="relative group">
+        <input
+          [(ngModel)]="newUser.name"
+          class="w-full px-4 py-3.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:ring-2 focus:ring-maintext-main/20 focus:border-maintext-main outline-none transition-all"
+          id="name"
+          name="name"
+          placeholder="Nombre completo"
+          required
+          type="text"
+        />
+      </div>
+    </div>
+
+    <div class="space-y-2">
+      <label
+        class="text-sm font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-2"
+        for="email"
+      >
+        <ng-icon name="ionMail" class="text-main" size="20"></ng-icon>
+        Correo Electrónico
+      </label>
+      <div class="relative group">
+        <input
+          [(ngModel)]="newUser.email"
+          class="w-full px-4 py-3.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:ring-2 focus:ring-maintext-main/20 focus:border-maintext-main outline-none transition-all"
+          id="email"
+          name="email"
+          placeholder="usuario@correo.com"
+          required
+          type="email"
+        />
+      </div>
+    </div>
+
+    <div class="space-y-2">
+      <label
+        class="text-sm font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-2"
+        for="phone"
+      >
+        <ng-icon name="ionCall" class="text-main" size="20"></ng-icon>
+        Teléfono
+      </label>
+      <div class="relative group">
+        <input
+          [(ngModel)]="newUser.phone"
+          class="w-full px-4 py-3.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:ring-2 focus:ring-maintext-main/20 focus:border-maintext-main outline-none transition-all"
+          id="phone"
+          name="phone"
+          placeholder="Teléfono"
+          required
+          type="text"
+        />
+      </div>
+    </div>
+
+    <div class="space-y-2">
+      <label
+        class="text-sm font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-2"
+        for="password"
+      >
+        <ng-icon name="ionLockClosed" class="text-main" size="20"></ng-icon>
+
+        Contraseña
+      </label>
+
+      <div class="relative group">
+        <input
+          [(ngModel)]="newUser.password"
+          class="w-full px-4 py-3.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:ring-2 focus:ring-maintext-main/20 focus:border-maintext-main outline-none transition-all"
+          id="password"
+          name="password"
+          placeholder="••••••••"
+          required
+          type="password"
+        />
+      </div>
+    </div>
+
+    <button
+      [disabled]="!newUser.name || !newUser.email || !newUser.phone || !newUser.password"
+      class="w-full font-bold py-4 px-6 rounded-lg shadow-lg flex items-center justify-center gap-2 transition-all active:scale-[0.98]"
+      type="submit"
+      [ngClass]="
+        !newUser.name || !newUser.email || !newUser.phone || !newUser.password
+          ? 'bg-gray-300 cursor-not-allowed text-gray-400/50'
+          : 'bg-main hover:bg-main/90 shadow-main/25 text-white cursor-pointer'
+      "
+    >
+      <span>Registrarse</span>
+    </button>
+  </form>
+</div>

@@ -1,1 +1,20 @@
-<app-register-form></app-register-form>
+<div class="grow relative flex items-center justify-center px-4 py-12 overflow-hidden">
+  <div class="relative w-full flex flex-col max-w-md">
+    <div class="text-center mb-8">
+      <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-white mb-3">
+        Registro de Usuario
+      </h1>
+      <p class="text-slate-600 dark:text-slate-400 text-base">
+        Crea una cuenta con tus datos personales.
+      </p>
+    </div>
+    <app-register-form></app-register-form>
+    <div class="w-full my-6 flex items-center justify-center">
+      <a
+        routerLink="/login"
+        class="text-xs text-center font-medium text-main hover:underline underline-offset-4 cursor-pointer"
+        >Ya tienes una cuenta? Inicia sesión</a
+      >
+    </div>
+  </div>
+</div>

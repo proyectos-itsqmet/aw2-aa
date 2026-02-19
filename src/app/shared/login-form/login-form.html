@@ -64,7 +64,13 @@
     </div>
 
     <button
-      class="w-full bg-main hover:bg-main/90 text-white font-bold py-4 px-6 rounded-lg shadow-lg shadow-main/25 flex items-center justify-center gap-2 transition-all active:scale-[0.98]"
+      [disabled]="!email || !password"
+      class="w-full font-bold py-4 px-6 rounded-lg shadow-lg flex items-center justify-center gap-2 transition-all active:scale-[0.98]"
+      [ngClass]="
+        !email || !password
+          ? 'bg-gray-300 cursor-not-allowed text-gray-400/50'
+          : 'bg-main hover:bg-main/90 shadow-main/25 text-white cursor-pointer'
+      "
       type="submit"
     >
       <span>Iniciar Sesión</span>
